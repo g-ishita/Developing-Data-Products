@@ -1,0 +1,17 @@
+```r
+install.packages("plotly")
+library(plotly)
+```
+```{r, eval=FALSE}
+library(plotly)
+plot_ly(mtcars, x = ~wt, y = ~mpg, type = "scatter")
+```
+
+```{r, echo=FALSE, message=FALSE}
+library(plotly)
+plot_ly(mtcars, x = ~wt, y = ~mpg, type = "scatter")
+```
+
+```{r, eval=FALSE}
+plot_ly(mtcars, x = ~wt, y = ~mpg, type = "scatter", color = ~factor(cyl))
+```
