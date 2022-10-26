@@ -1,0 +1,71 @@
+`install.packages("shiny")`
+`library(shiny)`
+
+`ui.R`
+
+```r
+library(shiny)
+shinyUI(fluidPage(
+  titlePanel("Data science FTW!"),
+  sidebarLayout(
+    sidebarPanel(
+      h3("Sidebar Text")
+    ),
+    mainPanel(
+      h3("Main Panel Text")
+    )
+  )
+))
+```
+
+```r
+library(shiny)
+shinyServer(function(input, output) {
+})
+```
+
+![](app1.png)
+
+```r
+library(shiny)
+shinyUI(fluidPage(
+  titlePanel("HTML Tags"),
+  sidebarLayout(
+    sidebarPanel(
+      h1("H1 Text"),
+      h3("H3 Text"),
+      em("Emphasized Text")
+    ),
+    mainPanel(
+      h3("Main Panel Text"),
+      code("Some Code!")
+    )
+  )
+))
+```
+
+
+![](app2.png)
+
+```r
+library(shiny)
+shinyUI(fluidPage(
+  titlePanel("Slider App"),
+  sidebarLayout(
+    sidebarPanel(
+      h1("Move the Slider!"),
+      sliderInput("slider1", "Slide Me!", 0, 100, 0)
+    ),
+    mainPanel(
+      h3("Slider Value:"),
+      textOutput("text")
+    )
+  )
+))
+```
+```r
+library(shiny)
+shinyServer(function(input, output) {
+  output$text <- renderText(input$slider1)
+})
+```
