@@ -2,6 +2,9 @@
 install.packages("plotly")
 library(plotly)
 ```
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
 ```{r, eval=FALSE}
 library(plotly)
 plot_ly(mtcars, x = ~wt, y = ~mpg, type = "scatter")
@@ -14,4 +17,12 @@ plot_ly(mtcars, x = ~wt, y = ~mpg, type = "scatter")
 
 ```{r, eval=FALSE}
 plot_ly(mtcars, x = ~wt, y = ~mpg, type = "scatter", color = ~factor(cyl))
+```
+```{r plot, echo=FALSE}
+suppressPackageStartupMessages(library(plotly))
+plot_ly(data = mtcars, x = ~wt, y = ~mpg, 
+        color = ~as.factor(cyl), size = ~hp,
+        text = ~paste("Weight: ", wt, '<br>MPG:', mpg),
+        type = "scatter", mode = "markers") %>%
+  layout(title = "Car Data")
 ```
